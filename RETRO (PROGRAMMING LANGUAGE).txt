@@ -1,0 +1,65 @@
+RETRO (PROGRAMMING LANGUAGE)
+
+_ =
+  ' '+
+
+__ =
+  ' '*
+
+eol =
+  | __ '\n'
+  | __ ';'
+
+args =
+  | (_ expr)+
+  | '(' __ expr (_ expr)* __ ')'
+
+args_def =
+  | (_ token)+
+  | '(' __ token (_ token)* __ ')'
+
+func_call =
+  | token args
+
+func_def =
+  '::' token args_def eol statements eol end
+
+statement =
+  | eol
+  | func_call eol
+  | if eol
+  | for eol
+
+statements =
+  | statement*
+
+if =
+  'if' _ expr _ 'then' _ statements else? 'end'
+
+else =
+  | _ 'else' statements
+  | _ 'else if' _ expr _ 'then' _ statements else?
+
+for =
+  'for' _ token _ 'in' _ expr eol statements 'end'
+
+integer =
+  /0-9/+
+
+float =
+  /0-9/+
+
+array =
+  '[' __ expr (_ expr)* __ ']'
+
+key =
+  ':' token
+
+struct =
+  '{' __ key _ expr (_ key _ expr)* __ '}'
+
+range =
+  '[' __ expr '..' expr __ ']'
+
+expr =
+

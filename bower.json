@@ -1,0 +1,22 @@
+{
+  "name": "hex-16",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Alain Deschenes"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Wad": "wad#^2.3.1"
+  }
+}
